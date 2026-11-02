@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Staff Portal & Authentication - MediTrack</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+  <style>
+    .auth-page {
+      min-height: 100vh;
+      width: 100vw;
+      display: flex;
+      background-color: var(--slate-100);
+    }
+    .auth-banner {
+      flex: 1;
+      background: linear-gradient(135deg, #075985 0%, #0369a1 50%, #0284c7 100%);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 48px;
+      position: relative;
+      overflow: hidden;
+    }
+    .auth-banner::after {
+      content: '';
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.05);
+      top: -100px;
+      right: -100px;
+      pointer-events: none;
+    }
+    .auth-card-wrapper {
+      width: 520px;
+      background: #fff;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 48px;
+      box-shadow: var(--shadow-xl);
+    }
+    .demo-role-chip {
+      padding: 6px 12px;
+      border: 1px solid var(--slate-200);
+      background: var(--slate-50);
+      border-radius: 9999px;
+      font-size: 0.76rem;
+      font-weight: 600;
+      color: var(--slate-700);
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .demo-role-chip:hover, .demo-role-chip.active {
+      background: var(--primary-light);
+      border-color: var(--primary);
+      color: var(--primary-dark);
+    }
+    .alert {
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      font-size: 0.82rem;
+      margin-bottom: 16px;
+      display: none;
+    }
+    .alert-danger {
+      background: #fee2e2;
+      border: 1px solid #fecaca;
+      color: #991b1b;
+    }
+    .alert-success {
+      background: #dcfce7;
+      border: 1px solid #bbf7d0;
+      color: #166534;
+    }
+    @media (max-width: 900px) {
+      .auth-banner { display: none; }
+      .auth-card-wrapper { width: 100%; padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body style="background:var(--slate-100);">
+  <div class="auth-page">
+    <!-- Left Hero Banner -->
+    <div class="auth-banner">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <div class="brand-icon" style="background:#fff;color:var(--primary);box-shadow:none;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+        </div>
+        <div>
+          <h2 style="font-size:1.4rem;font-weight:800;letter-spacing:-0.02em;">MediTrack</h2>
+          <span style="font-size:0.75rem;letter-spacing:0.06em;opacity:0.85;text-transform:uppercase;">Healthcare Management System</span>
+        </div>
+      </div>
+
+      <div style="max-width:440px;">
+        <h1 style="font-size:2.4rem;font-weight:800;line-height:1.15;margin-bottom:16px;">
+          Integrated Clinical Precision & Hospital Operations.
+        </h1>
+        <p style="font-size:1rem;opacity:0.9;line-height:1.6;">
+          Real-time patient census, electronic medical records, specialist dispatch, pharmacy management, and automated invoicing in one unified ecosystem.
+        </p>
+
+        <div style="margin-top:32px;display:flex;gap:24px;border-top:1px solid rgba(255,255,255,0.2);padding-top:20px;">
+          <div>
+            <div style="font-size:1.5rem;font-weight:800;">100%</div>
+            <div style="font-size:0.75rem;opacity:0.8;">Zero Server Dependencies</div>
+          </div>
+          <div>
+            <div style="font-size:1.5rem;font-weight:800;">MySQL</div>
+            <div style="font-size:0.75rem;opacity:0.8;">Full-Stack Ready</div>
+          </div>
+          <div>
+            <div style="font-size:1.5rem;font-weight:800;">EHR</div>
+            <div style="font-size:0.75rem;opacity:0.8;">Clinical Records</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size:0.8rem;opacity:0.75;">
+        © 2026 MediTrack Health System · Confidential Medical Staff Portal
+      </div>
+    </div>
+
+    <!-- Right Login Card -->
+    <div class="auth-card-wrapper">
+      <div style="margin-bottom:28px;">
+        <h2 style="font-size:1.6rem;font-weight:700;color:var(--navy-900);">Clinical Staff Sign In</h2>
+        <p style="font-size:0.85rem;color:var(--slate-500);margin-top:4px;">
+          Enter credentials or select a fast 1-click demo role below.
+        </p>
+      </div>
+
+      <!-- Quick Demo Role Chips -->
+      <div style="margin-bottom:24px;">
+        <div style="font-size:0.75rem;font-weight:600;color:var(--slate-500);text-transform:uppercase;margin-bottom:8px;">
+          1-Click Demo Profiles:
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button type="button" class="demo-role-chip active" data-role="doctor" onclick="fillDemoAccount('doctor')">
+            👨‍⚕️ Dr. Alexander Hayes (CMO)
+          </button>
+          <button type="button" class="demo-role-chip" data-role="admin" onclick="fillDemoAccount('admin')">
+            👩‍💼 Sarah Jenkins (Admin)
+          </button>
+          <button type="button" class="demo-role-chip" data-role="receptionist" onclick="fillDemoAccount('receptionist')">
+            🏥 Front Desk Reception
+          </button>
+        </div>
+      </div>
+
+      <div id="loginAlertBox" class="alert"></div>
+
+      <!-- Sign In Form -->
+      <form id="loginForm">
+        <div class="form-group" style="margin-bottom:16px;">
+          <label class="form-label">Hospital Email Address <span class="req">*</span></label>
+          <input type="email" id="loginEmail" class="form-control" value="doctor@meditrack.org" placeholder="staff@meditrack.org" required />
+        </div>
+
+        <div class="form-group" style="margin-bottom:18px;">
+          <div style="display:flex;justify-content:space-between;align-items:center;">
+            <label class="form-label">Password <span class="req">*</span></label>
+            <a href="#" style="font-size:0.75rem;color:var(--primary);text-decoration:none;" onclick="alert('For demo accounts, use: doctor123, admin123, or reception123'); return false;">Forgot password?</a>
+          </div>
+          <input type="password" id="loginPassword" class="form-control" value="doctor123" placeholder="••••••••" required />
+        </div>
+
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;font-size:0.82rem;color:var(--slate-600);">
+          <label style="display:flex;align-items:center;gap:6px;cursor:pointer;">
+            <input type="checkbox" checked />
+            <span>Remember this terminal</span>
+          </label>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width:100%;height:44px;font-size:0.95rem;">
+          Sign In to MediTrack
+        </button>
+      </form>
+
+      <div style="margin-top:24px;text-align:center;font-size:0.82rem;color:var(--slate-500);border-top:1px solid var(--slate-200);padding-top:16px;">
+        New medical staff member? 
+        <a href="#" style="color:var(--primary);font-weight:600;text-decoration:none;" onclick="window.MediApp.openModal('modalStaffRegister'); return false;">
+          Register Account
+        </a>
+      </div>
+
+      <div style="margin-top:14px;text-align:center;">
+        <a href="index.html" style="font-size:0.8rem;color:var(--slate-400);text-decoration:none;">
+          ← Skip authentication and return to Dashboard
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Staff Registration Modal -->
+  <div id="modalStaffRegister" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Register Hospital Staff Member</h3>
+        <button class="modal-close" data-close-modal>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <form id="registerForm">
+        <div class="modal-body">
+          <div class="form-group" style="margin-bottom:14px;">
+            <label class="form-label">Full Name & Credentials <span class="req">*</span></label>
+            <input type="text" id="regName" class="form-control" placeholder="Dr. Jonathan Reed, MD" required />
+          </div>
+
+          <div class="form-group" style="margin-bottom:14px;">
+            <label class="form-label">Hospital Email <span class="req">*</span></label>
+            <input type="email" id="regEmail" class="form-control" placeholder="j.reed@meditrack.org" required />
+          </div>
+
+          <div class="form-group" style="margin-bottom:14px;">
+            <label class="form-label">Clinical / Administrative Role <span class="req">*</span></label>
+            <select id="regRole" class="form-control" required>
+              <option value="Attending Physician">Attending Physician</option>
+              <option value="Specialist Surgeon">Specialist Surgeon</option>
+              <option value="Registered Nurse">Registered Nurse</option>
+              <option value="Pharmacist">Head Pharmacist</option>
+              <option value="Hospital Administrator">Hospital Administrator</option>
+              <option value="Front Desk Coordinator">Front Desk Coordinator</option>
+            </select>
+          </div>
+
+          <div class="form-group" style="margin-bottom:14px;">
+            <label class="form-label">Password <span class="req">*</span></label>
+            <input type="password" id="regPassword" class="form-control" placeholder="••••••••" required />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" data-close-modal>Cancel</button>
+          <button type="submit" class="btn btn-primary">Complete Registration</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/store.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/auth.js"></script>
+</body>
+</html>

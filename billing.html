@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patient Billing & Invoicing - MediTrack</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="brand-link">
+          <div class="brand-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <h1>MediTrack</h1>
+            <span>HOSPITAL SYSTEM</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Clinical Operations</div>
+        <a href="index.html" class="nav-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="patients.html" class="nav-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span>Patients</span>
+        </a>
+        <a href="doctors.html" class="nav-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"></path><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"></path><circle cx="20" cy="10" r="2"></circle></svg>
+          <span>Doctors</span>
+        </a>
+        <a href="appointments.html" class="nav-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span>Appointments</span>
+        </a>
+        <a href="medical-records.html" class="nav-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span>Medical Records</span>
+        </a>
+
+        <div class="nav-section-title">Logistics & Finance</div>
+        <a href="medicines.html" class="nav-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path><path d="m8.5 8.5 7 7"></path></svg>
+          <span>Medicines & Pharmacy</span>
+        </a>
+        <a href="billing.html" class="nav-item active">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+          <span>Billing & Invoices</span>
+        </a>
+        <a href="login.html" class="nav-item" style="margin-top:auto;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+          <span>Staff Login / Portal</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="system-status-box">
+          <div class="status-indicator">
+            <span id="backendStatusDot" class="status-dot standalone"></span>
+            <span id="backendStatusText">Standalone Mode</span>
+          </div>
+          <div id="backendStatusSub" class="status-sub">Direct browser / Local DB</div>
+        </div>
+        <div class="user-profile-widget">
+          <div id="currentUserAvatar" class="user-avatar">AH</div>
+          <div class="user-meta">
+            <div id="currentUserName" class="user-name">Dr. Alexander Hayes</div>
+            <div id="currentUserRole" class="user-role">Chief Medical Officer</div>
+          </div>
+          <button id="logoutBtn" class="logout-btn" title="Logout session">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="top-header">
+        <div class="header-left">
+          <button id="mobileNavToggle" class="mobile-toggle" aria-label="Toggle Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="breadcrumb">
+            <a href="index.html" style="color:inherit;text-decoration:none;">MediTrack</a>
+            <span>/</span>
+            <span class="breadcrumb-active">Billing & Invoicing</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="btn btn-zip download-zip-btn" title="Download Complete MediTrack Project ZIP">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Download ZIP</span>
+          </button>
+          <button class="btn btn-primary" onclick="window.MediApp.openModal('modalGenerateBill')">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span>+ Generate New Bill</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="page-container">
+        <!-- Revenue Stat Cards -->
+        <div class="stats-grid" style="grid-template-columns:repeat(4, 1fr);margin-bottom:24px;">
+          <div class="stat-card">
+            <div class="stat-info">
+              <span class="stat-label">Total Invoiced</span>
+              <div id="statBillTotalBilled" class="stat-value tabular-nums font-mono">$0.00</div>
+            </div>
+            <div class="stat-icon-wrapper blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-info">
+              <span class="stat-label">Total Collected</span>
+              <div id="statBillTotalPaid" class="stat-value tabular-nums font-mono" style="color:var(--success);">$0.00</div>
+            </div>
+            <div class="stat-icon-wrapper green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-info">
+              <span class="stat-label">Pending Balance</span>
+              <div id="statBillTotalPending" class="stat-value tabular-nums font-mono" style="color:var(--warning);">$0.00</div>
+            </div>
+            <div class="stat-icon-wrapper amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-info">
+              <span class="stat-label">Total Invoices</span>
+              <div id="statBillCount" class="stat-value tabular-nums">0</div>
+            </div>
+            <div class="stat-icon-wrapper purple">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+          <div class="filter-group">
+            <div class="search-bar" style="width:280px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="billSearchInput" placeholder="Search invoice #, patient, doctor..." />
+            </div>
+
+            <select id="billStatusFilter" class="filter-select">
+              <option value="All">All Payment Statuses</option>
+              <option value="Paid">Paid</option>
+              <option value="Pending">Pending Payment</option>
+              <option value="Partially Paid">Partially Paid</option>
+            </select>
+          </div>
+
+          <div style="font-size:0.8rem;color:var(--slate-500);">
+            Patient statements, insurance claims, and receipts
+          </div>
+        </div>
+
+        <!-- Invoices Table -->
+        <div class="card">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Invoice Code</th>
+                  <th>Patient & Physician</th>
+                  <th>Date Issued</th>
+                  <th>Due Date</th>
+                  <th>Total Amount</th>
+                  <th>Payment Status</th>
+                  <th>Payment Channel</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="billingsTableBody">
+                <!-- Injected via js/billing.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Generate Bill Modal -->
+  <div id="modalGenerateBill" class="modal-overlay">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <h3 class="modal-title">Generate Patient Medical Invoice</h3>
+        <button class="modal-close" data-close-modal>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <form id="generateBillForm">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group">
+              <label class="form-label">Select Patient <span class="req">*</span></label>
+              <select id="billPatientSelect" class="form-control" required>
+                <!-- Populated via js -->
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Attending / Referring Doctor</label>
+              <select id="billDoctorSelect" class="form-control">
+                <!-- Populated via js -->
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Invoice Date <span class="req">*</span></label>
+              <input type="date" id="billDate" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Payment Due Date <span class="req">*</span></label>
+              <input type="date" id="billDueDate" class="form-control" required />
+            </div>
+
+            <!-- Dynamic Line Items -->
+            <div class="form-group col-span-2" style="background:var(--slate-50);border:1px solid var(--slate-200);border-radius:var(--radius-md);padding:16px;">
+              <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+                <label class="form-label" style="margin:0;font-size:0.9rem;color:var(--primary);">Itemized Services & Charges</label>
+                <button type="button" class="btn btn-sm btn-outline" onclick="addBillItemRow()">+ Add Service Item</button>
+              </div>
+
+              <div id="billItemsContainer">
+                <div class="bill-item-row" style="display:grid;grid-template-columns:3fr 1fr 1.5fr 1.5fr 30px;gap:8px;margin-bottom:8px;align-items:center;">
+                  <input type="text" class="form-control item-desc" value="Specialist Clinical Consultation" required />
+                  <input type="number" class="form-control item-qty" value="1" min="1" oninput="calculateBillTotals()" required />
+                  <input type="number" class="form-control item-price" value="150.00" step="0.01" min="0" oninput="calculateBillTotals()" required />
+                  <input type="text" class="form-control item-total tabular-nums font-mono" value="$150.00" readonly style="background:var(--slate-50);" />
+                  <button type="button" onclick="this.parentElement.remove(); calculateBillTotals();" style="background:none;border:none;color:var(--danger);cursor:pointer;padding:4px;">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Calculation Bar -->
+              <div style="display:flex;justify-content:flex-end;margin-top:16px;border-top:1px solid var(--slate-200);padding-top:12px;">
+                <div style="width:260px;display:flex;flex-direction:column;gap:6px;font-size:0.85rem;">
+                  <div style="display:flex;justify-content:space-between;">
+                    <span>Subtotal:</span>
+                    <strong id="billCalcSubtotal" class="tabular-nums font-mono">$150.00</strong>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span>Tax (%):</span>
+                    <input type="number" id="billTaxRate" value="5" min="0" max="30" style="width:60px;height:28px;padding:2px 6px;border:1px solid var(--slate-300);border-radius:4px;text-align:right;" oninput="calculateBillTotals()" />
+                    <strong id="billCalcTax" class="tabular-nums font-mono">$7.50</strong>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;align-items:center;">
+                    <span>Insurance / Disc ($):</span>
+                    <input type="number" id="billDiscount" value="0" min="0" style="width:70px;height:28px;padding:2px 6px;border:1px solid var(--slate-300);border-radius:4px;text-align:right;" oninput="calculateBillTotals()" />
+                    <strong id="billCalcDiscount" class="tabular-nums font-mono" style="color:var(--success);">-$0.00</strong>
+                  </div>
+                  <div style="display:flex;justify-content:space-between;border-top:2px solid var(--navy-900);padding-top:6px;font-size:1.1rem;font-weight:700;">
+                    <span>Total Due:</span>
+                    <span id="billCalcTotal" class="tabular-nums font-mono">$157.50</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Payment Status</label>
+              <select id="billPaymentStatus" class="form-control">
+                <option value="Paid">Paid in Full</option>
+                <option value="Pending" selected>Pending</option>
+                <option value="Partially Paid">Partially Paid</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Payment Method</label>
+              <select id="billPaymentMethod" class="form-control">
+                <option value="Health Insurance">Health Insurance (Direct Claim)</option>
+                <option value="Credit / Debit Card">Credit / Debit Card</option>
+                <option value="Cash Settlement">Cash Settlement</option>
+                <option value="Bank Wire">Bank Wire Transfer</option>
+              </select>
+            </div>
+
+            <div class="form-group col-span-2">
+              <label class="form-label">Policy / Claim Notes</label>
+              <input type="text" id="billNotes" class="form-control" placeholder="Policy #, Copay reference or billing remarks" />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" data-close-modal>Cancel</button>
+          <button type="submit" class="btn btn-primary">Create Invoice</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Printable Invoice Modal -->
+  <div id="modalPrintInvoice" class="modal-overlay">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <h3 class="modal-title">Official Medical Invoice</h3>
+        <button class="modal-close" data-close-modal>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <div class="modal-body" id="printableInvoiceContent">
+        <!-- Injected via js/billing.js -->
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline" data-close-modal>Close</button>
+        <button type="button" class="btn btn-primary" onclick="window.print()">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
+          <span>Print / Save PDF</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/store.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/billing.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      var dt = document.getElementById('billDate');
+      var due = document.getElementById('billDueDate');
+      var now = new Date();
+      if (dt) dt.value = now.toISOString().slice(0, 10);
+      if (due) {
+        var dueD = new Date(now.getTime() + 14 * 24 * 60 * 60 * 1000);
+        due.value = dueD.toISOString().slice(0, 10);
+      }
+    });
+  </script>
+</body>
+</html>

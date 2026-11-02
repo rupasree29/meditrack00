@@ -1,0 +1,97 @@
+/* MediTrack - Responsive Styles */
+
+@media (max-width: 1100px) {
+  .dashboard-grid-2 {
+    grid-template-columns: 1fr;
+  }
+  .dashboard-grid-equal {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+  
+  .sidebar.mobile-open {
+    transform: translateX(0);
+    box-shadow: var(--shadow-xl);
+  }
+  
+  .main-content {
+    margin-left: 0;
+  }
+  
+  .mobile-toggle {
+    display: flex;
+  }
+  
+  .top-header {
+    padding: 0 16px;
+  }
+  
+  .page-container {
+    padding: 20px 16px;
+  }
+  
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px;
+  }
+  
+  .search-bar {
+    width: 200px;
+  }
+}
+
+@media (max-width: 640px) {
+  .top-header {
+    height: 60px;
+  }
+  
+  .search-bar {
+    display: none;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .filter-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .filter-group {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-group.col-span-2 {
+    grid-column: span 1;
+  }
+  
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .page-actions {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+  
+  .page-actions .btn {
+    flex: 1;
+  }
+  
+  .modal {
+    margin: 10px;
+    max-height: 95vh;
+  }
+}

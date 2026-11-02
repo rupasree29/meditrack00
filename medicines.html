@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Pharmacy & Medicine Inventory - MediTrack</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/responsive.css" />
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div class="sidebar-header">
+        <a href="index.html" class="brand-link">
+          <div class="brand-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <h1>MediTrack</h1>
+            <span>HOSPITAL SYSTEM</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section-title">Clinical Operations</div>
+        <a href="index.html" class="nav-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"></rect><rect x="14" y="3" width="7" height="7"></rect><rect x="14" y="14" width="7" height="7"></rect><rect x="3" y="14" width="7" height="7"></rect></svg>
+          <span>Dashboard</span>
+        </a>
+        <a href="patients.html" class="nav-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          <span>Patients</span>
+        </a>
+        <a href="doctors.html" class="nav-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.2.2 0 1 0 .3.3"></path><path d="M8 15v1a6 6 0 0 0 6 6v0a6 6 0 0 0 6-6v-4"></path><circle cx="20" cy="10" r="2"></circle></svg>
+          <span>Doctors</span>
+        </a>
+        <a href="appointments.html" class="nav-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+          <span>Appointments</span>
+        </a>
+        <a href="medical-records.html" class="nav-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+          <span>Medical Records</span>
+        </a>
+
+        <div class="nav-section-title">Logistics & Finance</div>
+        <a href="medicines.html" class="nav-item active">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path><path d="m8.5 8.5 7 7"></path></svg>
+          <span>Medicines & Pharmacy</span>
+        </a>
+        <a href="billing.html" class="nav-item">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"></rect><line x1="2" y1="10" x2="22" y2="10"></line></svg>
+          <span>Billing & Invoices</span>
+        </a>
+        <a href="login.html" class="nav-item" style="margin-top:auto;">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path><polyline points="10 17 15 12 10 7"></polyline><line x1="15" y1="12" x2="3" y2="12"></line></svg>
+          <span>Staff Login / Portal</span>
+        </a>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="system-status-box">
+          <div class="status-indicator">
+            <span id="backendStatusDot" class="status-dot standalone"></span>
+            <span id="backendStatusText">Standalone Mode</span>
+          </div>
+          <div id="backendStatusSub" class="status-sub">Direct browser / Local DB</div>
+        </div>
+        <div class="user-profile-widget">
+          <div id="currentUserAvatar" class="user-avatar">AH</div>
+          <div class="user-meta">
+            <div id="currentUserName" class="user-name">Dr. Alexander Hayes</div>
+            <div id="currentUserRole" class="user-role">Chief Medical Officer</div>
+          </div>
+          <button id="logoutBtn" class="logout-btn" title="Logout session">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path><polyline points="16 17 21 12 16 7"></polyline><line x1="21" y1="12" x2="9" y2="12"></line></svg>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <header class="top-header">
+        <div class="header-left">
+          <button id="mobileNavToggle" class="mobile-toggle" aria-label="Toggle Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="12" x2="21" y2="12"></line><line x1="3" y1="6" x2="21" y2="6"></line><line x1="3" y1="18" x2="21" y2="18"></line></svg>
+          </button>
+          <div class="breadcrumb">
+            <a href="index.html" style="color:inherit;text-decoration:none;">MediTrack</a>
+            <span>/</span>
+            <span class="breadcrumb-active">Pharmacy & Medicine Inventory</span>
+          </div>
+        </div>
+
+        <div class="header-right">
+          <button class="btn btn-zip download-zip-btn" title="Download Complete MediTrack Project ZIP">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+            <span>Download ZIP</span>
+          </button>
+          <button class="btn btn-primary" onclick="openAddMedicineModal()">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+            <span>+ Add Pharmaceutical Item</span>
+          </button>
+        </div>
+      </header>
+
+      <div class="page-container">
+        <!-- Low Stock Banner -->
+        <div id="lowStockAlertBanner" style="display:none;background:#fef2f2;border:1px solid #fecaca;border-radius:var(--radius-md);padding:14px 18px;margin-bottom:24px;align-items:center;justify-content:space-between;gap:14px;">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <div style="color:var(--danger);display:flex;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            </div>
+            <div>
+              <strong style="color:#991b1b;font-size:0.9rem;">Critical Pharmacy Stock Alert</strong>
+              <div id="lowStockAlertDesc" style="color:#b91c1c;font-size:0.8rem;margin-top:2px;">Pharmaceutical items are below safety threshold.</div>
+            </div>
+          </div>
+          <button class="btn btn-sm btn-danger" onclick="document.getElementById('medStockStatusFilter').value='Low'; renderMedicines();">
+            View Low Stock
+          </button>
+        </div>
+
+        <!-- Inventory KPI Cards -->
+        <div class="stats-grid" style="grid-template-columns:repeat(4, 1fr);margin-bottom:24px;">
+          <div class="stat-card">
+            <div class="stat-info">
+              <span class="stat-label">Total Drug Types</span>
+              <div id="statMedTotal" class="stat-value tabular-nums">0</div>
+            </div>
+            <div class="stat-icon-wrapper blue">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m10.5 20.5 10-10a4.95 4.95 0 1 0-7-7l-10 10a4.95 4.95 0 1 0 7 7Z"></path><path d="m8.5 8.5 7 7"></path></svg>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-info">
+              <span class="stat-label">Total Stock Units</span>
+              <div id="statMedUnits" class="stat-value tabular-nums">0</div>
+            </div>
+            <div class="stat-icon-wrapper green">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-info">
+              <span class="stat-label">Low Stock Alerts</span>
+              <div id="statMedLow" class="stat-value tabular-nums" style="color:var(--danger);">0</div>
+            </div>
+            <div class="stat-icon-wrapper rose">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="8" x2="12" y2="12"></line><line x1="12" y1="16" x2="12.01" y2="16"></line></svg>
+            </div>
+          </div>
+
+          <div class="stat-card">
+            <div class="stat-info">
+              <span class="stat-label">Expiring Soon (60d)</span>
+              <div id="statMedExpiring" class="stat-value tabular-nums" style="color:var(--warning);">0</div>
+            </div>
+            <div class="stat-icon-wrapper amber">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            </div>
+          </div>
+        </div>
+
+        <!-- Filter Bar -->
+        <div class="filter-bar">
+          <div class="filter-group">
+            <div class="search-bar" style="width:260px;">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+              <input type="text" id="medSearchInput" placeholder="Search medicine, generic, batch..." />
+            </div>
+
+            <select id="medCategoryFilter" class="filter-select">
+              <option value="All">All Drug Categories</option>
+              <option value="Antibiotics">Antibiotics</option>
+              <option value="Cardiovascular">Cardiovascular</option>
+              <option value="Analgesics">Analgesics & Pain</option>
+              <option value="Antidiabetic">Antidiabetic</option>
+              <option value="Respiratory">Respiratory</option>
+              <option value="Gastrointestinal">Gastrointestinal</option>
+              <option value="Neurology">Neurology</option>
+            </select>
+
+            <select id="medStockStatusFilter" class="filter-select">
+              <option value="All">All Stock Levels</option>
+              <option value="Low">Low Stock Alerts Only</option>
+              <option value="Expiring">Expiring Within 60 Days</option>
+              <option value="InStock">Adequate Stock</option>
+            </select>
+          </div>
+
+          <div style="font-size:0.8rem;color:var(--slate-500);">
+            Hospital dispensary & pharmacy formulary
+          </div>
+        </div>
+
+        <!-- Inventory Table -->
+        <div class="card">
+          <div class="table-responsive">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Drug Code</th>
+                  <th>Medicine Name & Generic</th>
+                  <th>Category</th>
+                  <th>Quantity In Stock</th>
+                  <th>Unit Price</th>
+                  <th>Expiry Date</th>
+                  <th>Distributor</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody id="medicinesTableBody">
+                <!-- Injected via js/medicines.js -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Add/Edit Medicine Modal -->
+  <div id="modalMedicineForm" class="modal-overlay">
+    <div class="modal modal-lg">
+      <div class="modal-header">
+        <h3 id="medModalTitle" class="modal-title">Add Pharmaceutical Item</h3>
+        <button class="modal-close" data-close-modal>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <form id="medicineForm">
+        <div class="modal-body">
+          <div class="form-grid">
+            <div class="form-group col-span-2">
+              <label class="form-label">Brand Name <span class="req">*</span></label>
+              <input type="text" id="medName" class="form-control" placeholder="e.g. Amoxicillin 500mg" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Generic / Chemical Name</label>
+              <input type="text" id="medGenericName" class="form-control" placeholder="e.g. Amoxicillin Trihydrate" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Category <span class="req">*</span></label>
+              <select id="medCategory" class="form-control" required>
+                <option value="Antibiotics">Antibiotics</option>
+                <option value="Cardiovascular">Cardiovascular</option>
+                <option value="Analgesics">Analgesics & Pain</option>
+                <option value="Antidiabetic">Antidiabetic</option>
+                <option value="Respiratory">Respiratory</option>
+                <option value="Gastrointestinal">Gastrointestinal</option>
+                <option value="Neurology">Neurology</option>
+                <option value="Vitamins">Vitamins & Supplements</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Initial Stock Quantity <span class="req">*</span></label>
+              <input type="number" id="medStockQty" class="form-control" placeholder="e.g. 100" min="0" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Dispensing Unit <span class="req">*</span></label>
+              <select id="medUnit" class="form-control" required>
+                <option value="Tablets">Tablets</option>
+                <option value="Capsules">Capsules</option>
+                <option value="Vials / Injections">Vials / Injections</option>
+                <option value="Inhalers">Inhalers</option>
+                <option value="Syrup / Bottles">Syrup / Bottles</option>
+                <option value="Ointment Tubes">Ointment Tubes</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Unit Price ($) <span class="req">*</span></label>
+              <input type="number" id="medUnitPrice" class="form-control" step="0.01" placeholder="Price in USD" min="0.1" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Expiration Date <span class="req">*</span></label>
+              <input type="date" id="medExpiryDate" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Low Stock Threshold</label>
+              <input type="number" id="medMinThreshold" class="form-control" value="25" min="5" />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label">Pharmaceutical Supplier / Lab</label>
+              <input type="text" id="medSupplier" class="form-control" placeholder="e.g. Apex BioPharm Ltd" />
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" data-close-modal>Cancel</button>
+          <button type="submit" class="btn btn-primary">Save to Inventory</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Fast Restock Modal -->
+  <div id="modalRestockMedicine" class="modal-overlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h3 class="modal-title">Restock Inventory</h3>
+        <button class="modal-close" data-close-modal>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+        </button>
+      </div>
+      <form id="formRestock">
+        <div class="modal-body">
+          <input type="hidden" id="restockMedId" />
+          <div style="margin-bottom:14px;">
+            <div id="restockMedName" style="font-size:1.05rem;font-weight:700;color:var(--navy-900);"></div>
+            <div style="font-size:0.82rem;color:var(--slate-500);margin-top:2px;">Current Stock: <strong id="restockCurrentStock" class="tabular-nums">0</strong></div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Units to Add <span class="req">*</span></label>
+            <input type="number" id="restockAmount" class="form-control" value="50" min="1" required />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-outline" data-close-modal>Cancel</button>
+          <button type="submit" class="btn btn-success">Confirm Restock</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/store.js"></script>
+  <script src="js/api.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/medicines.js"></script>
+</body>
+</html>
